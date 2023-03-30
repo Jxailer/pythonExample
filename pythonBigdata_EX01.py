@@ -7,22 +7,30 @@ data = csv.reader(file)
 next(data)
 next(data)
 
-mx_station = ['stationName', -1]
+mx_station = ['', -1]
+getOffNum = -1
 
 for row in data:
-    print(row)
 
     for i in range (4, 52) :
-        row[i] = row[i].replace((',', ''))
+        row[i] = int(row[i].replace(',', ''))
+        # 엑셀값에 포함된 ','를 지움
+        # deleted ',' in excel chart value
 
-        # if row[i] > mx_station[1]:
-        #     mx_station[1] = row[i]
-        #     mx_station[0] =
+    getOffNum = row[33]+row[35]+row[37]+row[39]
+    # 퇴근 시간에 지하철에서 내린 사람 수의 합
+    # sum of the number of people who get off the subway in rush time
+    if getOffNum > mx_station[1]:
+        mx_station[0] = row[3]
+        mx_station[1] = getOffNum
 
-    row[4:] = map(int, row[4:])
+print("출퇴근 시간에 하차 수가 가장 많은 역은 "+ mx_station[0] +"역 입니다.")
+print("the station with the maximum number of people getting off at 6-10 PM, which is the rush hour is: "+ mx_station[0]+" station")
 
-    print(row)
-    break
+
+
+
+
 
 
 
