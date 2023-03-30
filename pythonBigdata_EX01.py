@@ -18,13 +18,14 @@ for row in data:
         # deleted ',' in excel chart value
     for j in range (33, 40, 2):
         getOffNum += row[j]
-    print(getOffNum)
-    print(row[3])
-    #퇴근 시간에 지하철에서 내린 사람 수의 합
-    #sum of the number of people who get off the subway in rush time
+        # row의 33번째 값부터 39번째 값(6-10시 까지의 총 하차인원 수)까지의 합을 구함
+        # Calculates the sum from the 33rd value to the 39th value of row (total number of people getting off from 6-10:00)
+
     if getOffNum > mx_station[1]:
         mx_station[0] = row[3]
         mx_station[1] = getOffNum
+        # 기존의 값과 비교하여 하차 인원의 합이 더 크다면 최대값을 갱신함
+        # compared to old value, if new value is bigger, revise max value.
 
 print("출퇴근 시간에 하차 수가 가장 많은 역은 "+ mx_station[0] +"역 입니다.")
 print("the station with the maximum number of people getting off at 6-10 PM, which is the rush hour is: "+ mx_station[0]+" station")
