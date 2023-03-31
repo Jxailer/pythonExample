@@ -2,7 +2,7 @@
 # Find the station with the maximum number of people getting off at 6-10 PM, which is the rush hour.
 
 import csv
-file = open('e:/py/subwaytime.csv', 'r')
+file = open('C:/Users/deser/Downloads/subwaytime.csv', 'r')
 data = csv.reader(file)
 next(data)
 next(data)
@@ -27,6 +27,8 @@ for row in data:
         # 기존의 값과 비교하여 하차 인원의 합이 더 크다면 최대값을 갱신함
         # compared to old value, if new value is bigger, revise max value.
 
+    getOffNum = -1
+
 print("출퇴근 시간에 하차 수가 가장 많은 역은 "+ mx_station[0] +"역 입니다.")
 print("the station with the maximum number of people getting off at 6-10 PM, which is the rush hour is: "+ mx_station[0]+" station")
-
+# print(mx_station[1])
